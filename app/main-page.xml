@@ -1,0 +1,54 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-[#F5F5F7]">
+    <ActionBar class="bg-[#FFFFFF] elevation-1">
+        <GridLayout columns="auto, *, auto" class="w-full px-6">
+            <Label col="1" text="LearnMate" class="text-[22] font-bold text-center text-[#1D1D1F]"/>
+        </GridLayout>
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="px-6 py-8 space-y-8">
+            <!-- Welcome Section -->
+            <StackLayout class="space-y-2">
+                <Label text="Hello," class="text-[#6E6E73] text-[28] font-medium" />
+                <Label text="What would you like to learn?" class="text-[#1D1D1F] text-[34] font-bold" />
+            </StackLayout>
+
+            <!-- Search Input -->
+            <GridLayout rows="auto" columns="auto, *" 
+                class="bg-[#FFFFFF] rounded-[16] p-4 elevation-1">
+                <Label col="0" text="🔍" class="mr-3 text-[20]"/>
+                <TextField col="1" 
+                    hint="Enter any topic..." 
+                    text="{{ topic }}" 
+                    class="text-[17] text-[#1D1D1F] placeholder:text-[#86868B]"/>
+            </GridLayout>
+
+            <!-- Action Buttons -->
+            <StackLayout class="space-y-4">
+                <Button text="Explain Topic" tap="{{ explainTopic }}" 
+                    class="bg-[#0071E3] text-white font-bold rounded-[14] p-5 text-[17] elevation-2"/>
+                <Button text="Generate Study Plan" tap="{{ createStudyPlan }}" 
+                    class="bg-[#FFFFFF] text-[#0071E3] font-bold rounded-[14] p-5 text-[17] elevation-1"/>
+            </StackLayout>
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator busy="{{ isLoading }}" class="text-[#0071E3]"/>
+
+            <!-- Response Card -->
+            <StackLayout visibility="{{ response ? 'visible' : 'collapsed' }}"
+                class="bg-[#FFFFFF] rounded-[16] p-6 space-y-4 elevation-1">
+                <Label text="Your Learning Resource" class="text-[#1D1D1F] font-bold text-[22]"/>
+                <Label text="{{ response }}" textWrap="true" 
+                    class="text-[#1D1D1F] text-[17] leading-[1.4]"/>
+                
+                <!-- Action Footer -->
+                <GridLayout columns="*, *" class="mt-4">
+                    <Button col="0" text="Save" tap="{{ saveResponse }}"
+                        class="bg-[#F5F5F7] text-[#0071E3] font-bold rounded-[12] p-3 text-[15] m-1"/>
+                    <Button col="1" text="Share" tap="{{ shareResponse }}"
+                        class="bg-[#F5F5F7] text-[#0071E3] font-bold rounded-[12] p-3 text-[15] m-1"/>
+                </GridLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

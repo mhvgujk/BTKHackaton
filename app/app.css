@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Page {
+    font-family: -apple-system, SF Pro Display, SF Pro Text;
+}
+
+TextField {
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+Button {
+    text-transform: none;
+    font-weight: 700;
+}
+
+.ios Button {
+    height: auto;
+}
+
+ActivityIndicator {
+    width: 24;
+    height: 24;
+}
+
+.elevation-1 {
+    box-shadow: 0 2 4 rgba(0, 0, 0, 0.05);
+}
+
+.elevation-2 {
+    box-shadow: 0 4 6 rgba(0, 0, 0, 0.1);
+}
